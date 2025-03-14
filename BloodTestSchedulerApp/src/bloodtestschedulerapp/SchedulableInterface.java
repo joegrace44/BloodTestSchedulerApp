@@ -8,9 +8,9 @@ package bloodtestschedulerapp;
  *
  * @author joegr
  */
-public interface PatientInterface {
+public interface SchedulableInterface {
 
-    String getName();
+    void scheduleTest();
 
-    String getGPDetails();
+    void cancelTest();
 }

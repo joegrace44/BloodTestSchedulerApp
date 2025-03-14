@@ -8,6 +8,15 @@ package bloodtestschedulerapp;
  *
  * @author joegr
  */
-public class PQInterface {
-    
+public interface PQInterface {
+
+    void enqueue(int priority, Object patient);
+
+    int size();
+
+    boolean isEmpty();
+
+    Object dequeue();
+
+    String printPQueue();
 }

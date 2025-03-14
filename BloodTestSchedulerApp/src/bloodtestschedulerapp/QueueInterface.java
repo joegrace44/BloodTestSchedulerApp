@@ -8,6 +8,13 @@ package bloodtestschedulerapp;
  *
  * @author joegr
  */
-public class QueueInterface {
-    
+public interface QueueInterface {
+
+    boolean isEmpty();
+
+    int size();
+
+    void enqueue(Object newItem);
+
+    Object dequeue();
 }
