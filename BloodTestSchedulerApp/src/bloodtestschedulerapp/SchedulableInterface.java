@@ -11,6 +11,4 @@ package bloodtestschedulerapp;
 public interface SchedulableInterface {
 
     void scheduleTest();
-
-    void cancelTest();
 }

@@ -9,5 +9,20 @@ package bloodtestschedulerapp;
  * @author joegr
  */
 public class PQElement {
-    
+
+    private int priority;
+    private Object element;
+
+    public PQElement(int priority, Object element) {
+        this.priority = priority;
+        this.element = element;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public Object getElement() {
+        return element;
+    }
 }
