@@ -40,7 +40,7 @@ public class MyPriorityQueue implements PQInterface {
         }
     }
 
-    // Only prioritize by urgency: Urgent > Medium > Low
+    // Prioritize by urgency: Urgent > Medium > Low
     private int findInsertPosition(int newPriority) {
         for (int i = 0; i < thePQueue.size(); i++) {
             PQElement curElement = thePQueue.get(i);
@@ -48,7 +48,7 @@ public class MyPriorityQueue implements PQInterface {
                 return i;
             }
         }
-        return thePQueue.size(); // Default: add to the end
+        return thePQueue.size(); // Default is to add to the end
     }
 
     @Override

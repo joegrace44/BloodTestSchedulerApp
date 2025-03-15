@@ -4,11 +4,27 @@
  */
 package bloodtestschedulerapp;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author joegr
  */
 public class GUI extends javax.swing.JFrame {
+
+// Priority queue for managing patients based on urgency (Urgent > Medium > Low)
+    private PQInterface priorityQueue = new MyPriorityQueue();
+
+// FIFO queue to store the last 5 patients who did not show up
+    private QueueInterface noShowQueue = new MyQueue();
+
+// Stores the last patient displayed by "Next Patient" button
+    private Patient lastDisplayedPatient = null;
+
+    private String getUrgencyString(int priority) {
+        String[] urgencyLevels = {"Low", "Medium", "Urgent"};
+        return (priority >= 0 && priority < urgencyLevels.length) ? urgencyLevels[priority] : "Unknown";
+    }
 
     /**
      * Creates new form GUI
@@ -93,6 +109,7 @@ public class GUI extends javax.swing.JFrame {
         jLabelPriority.setForeground(new java.awt.Color(29, 53, 87));
         jLabelPriority.setText("Priority:");
 
+        jCheckBoxHospital.setBackground(new java.awt.Color(204, 204, 204));
         jCheckBoxHospital.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jCheckBoxHospital.setForeground(new java.awt.Color(29, 53, 87));
         jCheckBoxHospital.setText("Coming from hospital?");
@@ -256,19 +273,100 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxHospitalActionPerformed
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
+        // Get input values from user fields
+        String name = jTextFieldName.getText();
+        String gpDetails = jTextFieldGP.getText();
+        int age;
 
+        // Validate Age Input (Ensure user enters a valid number)
+        try {
+            age = Integer.parseInt(jTextFieldAge.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid age.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Get priority selection from combo box (0 = Low, 1 = Medium, 2 = Urgent)
+        int priority = jComboBox1.getSelectedIndex();
+        // Check if the patient is coming from the hospital
+        boolean fromHospital = jCheckBoxHospital.isSelected();
+
+        // Create a new Patient object with the retrieved values
+        Patient newPatient = new Patient(name, priority, age, fromHospital, gpDetails);
+        // Add the patient to the priority queue based on urgency
+        priorityQueue.enqueue(priority, newPatient);
+
+        // Display confirmation message in the text area
+        jTextArea1.append("\n\n" + name + " added to the queue.");
+
+        // Clear input fields after adding the patient
+        jTextFieldName.setText("");
+        jTextFieldAge.setText("");
+        jTextFieldGP.setText("");
+        jCheckBoxHospital.setSelected(false);
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jButtonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextActionPerformed
+        if (!priorityQueue.isEmpty()) {
+            // Get the next patient (highest priority)
+            PQElement pqElement = (PQElement) priorityQueue.dequeue();
+            lastDisplayedPatient = (Patient) pqElement.getElement(); // Store correct patient
 
+            // Display the patient's details in the text area
+            String patientDetails = "\n\nNext Patient:\n"
+                    + "Name: " + lastDisplayedPatient.getName() + "\n"
+                    + "Urgency: " + getUrgencyString(pqElement.getPriority()) + "\n"
+                    + "Age: " + lastDisplayedPatient.getAge() + "\n"
+                    + "Coming from Hospital: " + (lastDisplayedPatient.isComingFromHospital() ? "Yes" : "No");
+
+            jTextArea1.append(patientDetails);
+        } else {
+            // If queue is empty, inform the user
+            jTextArea1.append("\n\nNo patients in queue.");
+        }
     }//GEN-LAST:event_jButtonNextActionPerformed
 
     private void jButtonNoShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNoShowActionPerformed
+        if (lastDisplayedPatient != null) { // Ensure a patient has been displayed
+            // Add the last shown patient to the no-show queue
+            noShowQueue.enqueue(lastDisplayedPatient);
+            jTextArea1.append("\n\n" + lastDisplayedPatient.getName() + " marked as no-show.");
 
+            // Reset lastDisplayedPatient to prevent duplicate marking
+            lastDisplayedPatient = null;
+        } else {
+            // If no patient is displayed, show a warning message
+            jTextArea1.append("\n\nNo patient selected to mark as no-show.");
+        }
     }//GEN-LAST:event_jButtonNoShowActionPerformed
 
     private void jButtonShowNoShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonShowNoShowActionPerformed
-        // TODO add your handling code here:
+        displayNoShowList(); // Call method to display the no-show list
+    }
+
+// Displays the last 5 no-show patients in the text area
+    private void displayNoShowList() {
+        jTextArea1.append("\n\nLast 5 No-Show Patients:");
+
+        if (noShowQueue.isEmpty()) {
+            // Show message if no patients in the no-show list
+            jTextArea1.append("\n\nNo patients in the no-show list.");
+            return;
+        }
+
+        QueueInterface tempQueue = new MyQueue(); // Temporary queue to restore no-show queue
+
+        while (!noShowQueue.isEmpty()) {
+            // Gets and displays patient name
+            Patient p = (Patient) noShowQueue.dequeue();
+            jTextArea1.append("\n\n- " + p.getName());
+            tempQueue.enqueue(p); // Store patient in temp queue
+        }
+
+        // Restores the original queue
+        while (!tempQueue.isEmpty()) {
+            noShowQueue.enqueue(tempQueue.dequeue());
+        }
     }//GEN-LAST:event_jButtonShowNoShowActionPerformed
 
     /**

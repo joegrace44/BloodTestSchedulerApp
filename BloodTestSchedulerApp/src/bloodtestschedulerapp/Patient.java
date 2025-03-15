@@ -8,40 +8,39 @@ package bloodtestschedulerapp;
  *
  * @author joegr
  */
-public class Patient implements PatientInterface, SchedulableInterface {
+public class Patient {
 
     private String name;
-    private String gpDetails;
     private int priority;
+    private int age; // Keep age but don't use it for priority
     private boolean comingFromHospital;
+    private String gpDetails;
 
-    public Patient(String name, int priority, boolean comingFromHospital, String gpDetails) {
+    public Patient(String name, int priority, int age, boolean comingFromHospital, String gpDetails) {
         this.name = name;
         this.priority = priority;
+        this.age = age;
         this.comingFromHospital = comingFromHospital;
         this.gpDetails = gpDetails;
     }
 
-    @Override
+    public int getAge() {
+        return age;
+    }
+
     public String getName() {
         return name;
     }
 
-    @Override
+    public boolean isComingFromHospital() {
+        return comingFromHospital;
+    }
+
     public String getGPDetails() {
         return gpDetails;
     }
 
-    @Override
-    public void scheduleTest() {
-        System.out.println(name + " has been scheduled for a blood test.");
-    }
-
     public int getPriority() {
         return priority;
-    }
-
-    public boolean isComingFromHospital() {
-        return comingFromHospital;
     }
 }
