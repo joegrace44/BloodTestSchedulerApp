@@ -26,21 +26,250 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabelName = new javax.swing.JLabel();
+        jLabelAge = new javax.swing.JLabel();
+        jLabelGP = new javax.swing.JLabel();
+        jTextFieldName = new javax.swing.JTextField();
+        jTextFieldGP = new javax.swing.JTextField();
+        jTextFieldAge = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabelPriority = new javax.swing.JLabel();
+        jCheckBoxHospital = new javax.swing.JCheckBox();
+        jButtonAdd = new javax.swing.JButton();
+        jButtonNext = new javax.swing.JButton();
+        jButtonNoShow = new javax.swing.JButton();
+        jLabelTitle = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jButtonShowNoShow = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLabelName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabelName.setForeground(new java.awt.Color(29, 53, 87));
+        jLabelName.setText("Patient Name:");
+
+        jLabelAge.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabelAge.setForeground(new java.awt.Color(29, 53, 87));
+        jLabelAge.setText("Patients Age:");
+
+        jLabelGP.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabelGP.setForeground(new java.awt.Color(29, 53, 87));
+        jLabelGP.setText("GP Details:");
+
+        jTextFieldName.setForeground(new java.awt.Color(0, 0, 0));
+        jTextFieldName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNameActionPerformed(evt);
+            }
+        });
+
+        jTextFieldGP.setForeground(new java.awt.Color(0, 0, 0));
+        jTextFieldGP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldGPActionPerformed(evt);
+            }
+        });
+
+        jTextFieldAge.setForeground(new java.awt.Color(0, 0, 0));
+        jTextFieldAge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAgeActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Low", "Medium", "Urgent" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        jLabelPriority.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabelPriority.setForeground(new java.awt.Color(29, 53, 87));
+        jLabelPriority.setText("Priority:");
+
+        jCheckBoxHospital.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jCheckBoxHospital.setForeground(new java.awt.Color(29, 53, 87));
+        jCheckBoxHospital.setText("Coming from hospital?");
+        jCheckBoxHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxHospitalActionPerformed(evt);
+            }
+        });
+
+        jButtonAdd.setBackground(new java.awt.Color(69, 123, 157));
+        jButtonAdd.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonAdd.setText("Add Patient");
+        jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddActionPerformed(evt);
+            }
+        });
+
+        jButtonNext.setBackground(new java.awt.Color(230, 57, 70));
+        jButtonNext.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonNext.setText("Next Patient");
+        jButtonNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNextActionPerformed(evt);
+            }
+        });
+
+        jButtonNoShow.setBackground(new java.awt.Color(230, 57, 70));
+        jButtonNoShow.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonNoShow.setText("Mark No-Show");
+        jButtonNoShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNoShowActionPerformed(evt);
+            }
+        });
+
+        jLabelTitle.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabelTitle.setForeground(new java.awt.Color(29, 53, 87));
+        jLabelTitle.setText("Blood Test Scheduler");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jButtonShowNoShow.setBackground(new java.awt.Color(230, 57, 70));
+        jButtonShowNoShow.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonShowNoShow.setText("Show No-Show List");
+        jButtonShowNoShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonShowNoShowActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelTitle)
+                .addGap(281, 281, 281))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(jButtonAdd)
+                .addGap(129, 129, 129)
+                .addComponent(jButtonNext)
+                .addGap(54, 54, 54)
+                .addComponent(jButtonNoShow)
+                .addGap(40, 40, 40)
+                .addComponent(jButtonShowNoShow)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelPriority)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextFieldAge, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                                .addComponent(jTextFieldGP, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                                .addComponent(jLabelName)
+                                .addComponent(jLabelAge)
+                                .addComponent(jLabelGP)
+                                .addComponent(jTextFieldName)
+                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jCheckBoxHospital)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabelTitle)
+                .addGap(54, 54, 54)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabelName)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelAge)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelGP)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldGP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelPriority)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jCheckBoxHospital))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonAdd)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonNoShow)
+                        .addComponent(jButtonNext)
+                        .addComponent(jButtonShowNoShow)))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextFieldNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNameActionPerformed
+
+    private void jTextFieldGPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldGPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldGPActionPerformed
+
+    private void jTextFieldAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAgeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAgeActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jCheckBoxHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxHospitalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxHospitalActionPerformed
+
+    private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
+
+    }//GEN-LAST:event_jButtonAddActionPerformed
+
+    private void jButtonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextActionPerformed
+
+    }//GEN-LAST:event_jButtonNextActionPerformed
+
+    private void jButtonNoShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNoShowActionPerformed
+
+    }//GEN-LAST:event_jButtonNoShowActionPerformed
+
+    private void jButtonShowNoShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonShowNoShowActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonShowNoShowActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +307,22 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAdd;
+    private javax.swing.JButton jButtonNext;
+    private javax.swing.JButton jButtonNoShow;
+    private javax.swing.JButton jButtonShowNoShow;
+    private javax.swing.JCheckBox jCheckBoxHospital;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabelAge;
+    private javax.swing.JLabel jLabelGP;
+    private javax.swing.JLabel jLabelName;
+    private javax.swing.JLabel jLabelPriority;
+    private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextFieldAge;
+    private javax.swing.JTextField jTextFieldGP;
+    private javax.swing.JTextField jTextFieldName;
     // End of variables declaration//GEN-END:variables
 }
