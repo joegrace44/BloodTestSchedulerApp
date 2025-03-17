@@ -7,6 +7,8 @@ package bloodtestschedulerapp;
 /**
  *
  * @author joegr
+ * The PQElement class represents an element in the priority queue.
+ * It stores the patient object along with its priority level.
  */
 public class PQElement {
 

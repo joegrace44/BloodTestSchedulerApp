@@ -7,7 +7,11 @@ package bloodtestschedulerapp;
 /**
  *
  * @author joegr
+ * The QueueInterface defines the required operations for a basic queue.
+ * Any class implementing this interface must provide methods to add, remove,
+ * check size, and determine if the queue is empty.
  */
+
 public interface QueueInterface {
 
     boolean isEmpty();

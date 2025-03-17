@@ -9,7 +9,11 @@ import java.util.ArrayList;
 /**
  *
  * @author joegr
+ * MyQueue is a FIFO (First-In-First-Out) queue implementation for storing
+ * the last 5 no-show patients in the Blood Test Scheduler application.
+ * It ensures that only the most recent 5 no-show patients are kept in memory.
  */
+
 public class MyQueue implements QueueInterface {
 
     private ArrayList<Patient> queue;

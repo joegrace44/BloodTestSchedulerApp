@@ -7,6 +7,9 @@ package bloodtestschedulerapp;
 /**
  *
  * @author joegr
+ * PQInterface defines the required operations for a priority queue.
+ * Any class implementing this interface must provide methods 
+ * to add, remove, and check elements in the queue.
  */
 public interface PQInterface {
 

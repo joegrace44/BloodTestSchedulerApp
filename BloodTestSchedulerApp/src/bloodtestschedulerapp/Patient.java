@@ -7,12 +7,16 @@ package bloodtestschedulerapp;
 /**
  *
  * @author joegr
+ * The Patient class represents a patient requesting a blood test.
+ * Each patient has a name, priority level, age, GP details, and 
+ * whether they are coming from a hospital.
  */
+
 public class Patient {
 
     private String name;
     private int priority;
-    private int age; // Keep age but don't use it for priority
+    private int age; 
     private boolean comingFromHospital;
     private String gpDetails;
 

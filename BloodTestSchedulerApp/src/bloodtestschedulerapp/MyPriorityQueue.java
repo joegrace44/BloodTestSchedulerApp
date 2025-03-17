@@ -9,7 +9,10 @@ import java.util.ArrayList;
 /**
  *
  * @author joegr
+ * MyPriorityQueue implements a priority queue for scheduling blood test patients.
+ * Patients are prioritized based on urgency level (Urgent > Medium > Low).
  */
+
 public class MyPriorityQueue implements PQInterface {
 
     private ArrayList<PQElement> thePQueue;
